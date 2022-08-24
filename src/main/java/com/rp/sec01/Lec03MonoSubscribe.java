@@ -9,8 +9,8 @@ public class Lec03MonoSubscribe {
 
         // publisher
         Mono<Integer> mono = Mono.just("ball")
-                                .map(String::length)
-                                .map(l -> l / 1);
+                .map(String::length)
+                .map(l -> l / 0);
 
         // 1
         // mono.subscribe();

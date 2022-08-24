@@ -7,7 +7,7 @@ public class Lec04MonoEmptyOrError {
 
     public static void main(String[] args) {
 
-        userRepository(20)
+        userRepository(333)
                 .subscribe(
                         Util.onNext(),
                         Util.onError(),
@@ -17,13 +17,13 @@ public class Lec04MonoEmptyOrError {
     }
 
 
-    private static Mono<String> userRepository(int userId){
+    private static Mono<String> userRepository(int userId) {
         // 1
-        if(userId == 1){
+        if (userId == 1) {
             return Mono.just(Util.faker().name().firstName());
-        }else if(userId == 2){
+        } else if (userId == 2) {
             return Mono.empty(); // null
-        }else
+        } else
             return Mono.error(new RuntimeException("Not in the allowed range"));
     }
 
