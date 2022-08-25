@@ -11,15 +11,17 @@ public class Lec04FluxCreateIssueFix {
         Flux.create(fluxSink -> {
             String country;
             int counter = 0;
-            do{
+            do {
                 country = Util.faker().country().name();
                 System.out.println("emitting : " + country);
                 fluxSink.next(country);
                 counter++;
-            }while (!country.toLowerCase().equals("canada") && !fluxSink.isCancelled() && counter < 10);
+//            }while (!country.equalsIgnoreCase("canada") && !fluxSink.isCancelled() && counter < 10);
+            } while (!country.equalsIgnoreCase("canada") && !fluxSink.isCancelled());
             fluxSink.complete();
         })
         .take(3)
+//        .limitRequest(3)
         .subscribe(Util.subscriber());
 
 

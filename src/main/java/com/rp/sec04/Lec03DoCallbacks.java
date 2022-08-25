@@ -17,10 +17,11 @@ public class Lec03DoCallbacks {
             System.out.println("--completed");
         })
         .doOnComplete(() -> System.out.println("doOnComplete"))
-        .doFirst(() -> System.out.println("doFirst"))
+        .doFirst(() -> System.out.println("doFirst 1"))
         .doOnNext(o -> System.out.println("doOnNext : " + o))
         .doOnSubscribe(s -> System.out.println("doOnSubscribe" + s))
         .doOnRequest(l -> System.out.println("doOnRequest : " + l))
+        .doFirst(() -> System.out.println("doFirst 2"))
         .doOnError(err -> System.out.println("doOnError : " + err.getMessage()))
         .doOnTerminate(() -> System.out.println("doOnTerminate"))
         .doOnCancel(() -> System.out.println("doOnCancel"))

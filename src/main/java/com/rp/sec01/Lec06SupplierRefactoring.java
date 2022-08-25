@@ -11,7 +11,7 @@ public class Lec06SupplierRefactoring {
         getName();
         String name = getName()
                 .subscribeOn(Schedulers.boundedElastic())
-                .block();
+                .block();   // blocking mono subscriber
         System.out.println(name);
         getName();
 

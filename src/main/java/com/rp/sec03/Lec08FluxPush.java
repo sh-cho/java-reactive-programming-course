@@ -11,7 +11,7 @@ public class Lec08FluxPush {
 
         NameProducer nameProducer = new NameProducer();
 
-        Flux.create(nameProducer)
+        Flux.push(nameProducer)
                 .subscribe(Util.subscriber());
 
         Runnable runnable = nameProducer::produce;
@@ -20,7 +20,7 @@ public class Lec08FluxPush {
             new Thread(runnable).start();
         }
 
-        Util.sleepSeconds(2);
+        Util.sleepSeconds(3);
 
 
     }

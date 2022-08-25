@@ -16,7 +16,7 @@ public class Lec07MonoFromFuture {
 
     }
 
-    private static CompletableFuture<String> getName(){
+    private static CompletableFuture<String> getName() {
         return CompletableFuture.supplyAsync(() -> Util.faker().name().fullName());
     }
 

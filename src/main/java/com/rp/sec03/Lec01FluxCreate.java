@@ -9,15 +9,12 @@ public class Lec01FluxCreate {
 
         Flux.create(fluxSink -> {
             String country;
-            do{
+            do {
                 country = Util.faker().country().name();
                 fluxSink.next(country);
-            }while (!country.toLowerCase().equals("canada"));
+            } while (!country.toLowerCase().equals("canada"));
             fluxSink.complete();
-        })
-        .subscribe(Util.subscriber());
-
-
+        }).subscribe(Util.subscriber());
 
     }
 

@@ -10,10 +10,9 @@ public class Lec01Handle {
         // handle = filter + map
         Flux.range(1, 20)
                 .handle((integer, synchronousSink) -> {
-                    if(integer == 7)
+                    if (integer == 7)
                         synchronousSink.complete();
-                    else
-                        synchronousSink.next(integer);
+                    synchronousSink.next(integer);
                 })
                 .subscribe(Util.subscriber());
 

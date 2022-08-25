@@ -12,7 +12,7 @@ public class Lec06OnError {
                 .log()
                 .map(i -> 10 / (5 - i))
                // .onErrorReturn(-1)
-               //  .onErrorResume(e -> fallback())
+//                 .onErrorResume(e -> fallback())
                 .onErrorContinue((err, obj) -> {
 
                 })

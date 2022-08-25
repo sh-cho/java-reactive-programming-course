@@ -6,7 +6,7 @@ public class UserService {
 
     public static Flux<User> getUsers(){
         return Flux.range(1, 2)
-                    .map(i -> new User(i));
+                    .map(User::new);
     }
 
 

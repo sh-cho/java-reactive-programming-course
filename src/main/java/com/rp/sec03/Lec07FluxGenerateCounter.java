@@ -10,15 +10,13 @@ public class Lec07FluxGenerateCounter {
         Flux.generate(
                 () -> 1,
                 (counter, sink) -> {
-                   String country = Util.faker().country().name();
-                   sink.next(country);
-                   if(counter >= 10 || country.toLowerCase().equals("canada") )
-                       sink.complete();
-                  return counter + 1;
+                    String country = Util.faker().country().name();
+                    sink.next(country);
+                    if (counter >= 10 || country.toLowerCase().equals("canada"))
+                        sink.complete();
+                    return counter + 1;
                 }
-        )
-        .take(4)
-        .subscribe(Util.subscriber());
+        ).take(4).subscribe(Util.subscriber());
 
 
     }

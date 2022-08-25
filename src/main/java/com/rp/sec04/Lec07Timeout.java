@@ -18,14 +18,14 @@ public class Lec07Timeout {
 
     }
 
-    private static Flux<Integer> getOrderNumbers(){
+    private static Flux<Integer> getOrderNumbers() {
         return Flux.range(1, 10)
-                    .delayElements(Duration.ofSeconds(5));
+                .delayElements(Duration.ofSeconds(5));
     }
 
-    private static Flux<Integer> fallback(){
+    private static Flux<Integer> fallback() {
         return Flux.range(100, 10)
-                    .delayElements(Duration.ofSeconds(5));
+                .delayElements(Duration.ofSeconds(5));
     }
 
 }

@@ -14,8 +14,6 @@ public class Lec05FluxGenerate {
         })
         .take(2)
         .subscribe(Util.subscriber());
-
-
     }
 
 }

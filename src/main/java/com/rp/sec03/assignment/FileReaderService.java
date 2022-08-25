@@ -14,16 +14,16 @@ import java.util.function.Consumer;
 
 public class FileReaderService {
 
-    private Callable<BufferedReader> openReader(Path path){
+    private Callable<BufferedReader> openReader(Path path) {
         return () -> Files.newBufferedReader(path);
     }
 
-    private BiFunction<BufferedReader, SynchronousSink<String>, BufferedReader> read(){
+    private BiFunction<BufferedReader, SynchronousSink<String>, BufferedReader> read() {
         return (br, sink) -> {
             try {
                 String line = br.readLine();
                 System.out.println("reading --- " + line);
-                if(Objects.isNull(line))
+                if (Objects.isNull(line))
                     sink.complete();
                 else
                     sink.next(line);
@@ -34,7 +34,7 @@ public class FileReaderService {
         };
     }
 
-    private Consumer<BufferedReader> closeReader(){
+    private Consumer<BufferedReader> closeReader() {
         return br -> {
             try {
                 br.close();
@@ -45,11 +45,11 @@ public class FileReaderService {
         };
     }
 
-    public Flux<String> read(Path path){
+    public Flux<String> read(Path path) {
         return Flux.generate(
-             openReader(path),
-             read(),
-             closeReader()
+                openReader(path),
+                read(),
+                closeReader()
         );
     }
 

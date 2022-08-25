@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class OrderService {
 
-    private static Map<Integer, List<PurchaseOrder>> db = new HashMap<>();
+    private static final Map<Integer, List<PurchaseOrder>> db = new HashMap<>();
 
     static {
         List<PurchaseOrder> list1 = Arrays.asList(
