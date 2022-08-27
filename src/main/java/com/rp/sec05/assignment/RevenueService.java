@@ -11,18 +11,18 @@ public class RevenueService {
 
     private Map<String, Double> db = new HashMap<>();
 
-    public RevenueService(){
+    public RevenueService() {
         db.put("Kids", 0.0);
         db.put("Automotive", 0.0);
     }
 
-    public Consumer<PurchaseOrder> subscribeOrderStream(){
+    public Consumer<PurchaseOrder> orderStreamConsumer() {
         return p -> db.computeIfPresent(p.getCategory(), (k, v) -> v + p.getPrice());
     }
 
-    public Flux<String> revenueStream(){
+    public Flux<String> revenueStream() {
         return Flux.interval(Duration.ofSeconds(2))
-                    .map(i -> db.toString());
+                .map(i -> db.toString());
     }
 
 }
